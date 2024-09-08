@@ -240,8 +240,6 @@ local function ServerSwitch()
 
 		local Queue = [[print("yo") getgenv().StartingMoney = ]] .. getgenv().StartingMoney .. [[
 			getgenv().StartingTime = ]] .. getgenv().StartingTime .. [[
-			repeat wait(1) until game:IsLoaded()
-		loadstring(game:HttpGet("https://raw.githubusercontent.com/Unknownusername700/Hdshhehwhis/main/Crate.lua"))()
 		]]
 
 		queue_on_teleport(Queue)
