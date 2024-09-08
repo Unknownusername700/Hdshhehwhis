@@ -238,21 +238,10 @@ local function ServerSwitch()
 		SaveFile(tostring(ScriptFile), ScriptSaved)
 		SaveFile("AutoCrateSettings.json", HttpService:JSONEncode(Settings))
 
-		local Queue = [[getgenv().StartingMoney = ]] .. getgenv().StartingMoney .. [[
+		local Queue = [[print("yo") getgenv().StartingMoney = ]] .. getgenv().StartingMoney .. [[
 			getgenv().StartingTime = ]] .. getgenv().StartingTime .. [[
-			script_key = "]] .. script_key .. [[";
-			local success, error = pcall(function()
-				loadstring(readfile("]] .. tostring(ScriptFile) .. [["))()
-			end)
-ssssss
-			if not success then
-				if not game:IsLoaded() then 
-					game.Loaded:Wait() 
-					task.wait(1) 
-				end
-
-				loadstring(game:HttpGet("https://raw.githubusercontent.com/Unknownusername700/Hdshhehwhis/main/Crate.lua"))()
-			end
+			repeat wait(1) until game:IsLoaded()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/Unknownusername700/Hdshhehwhis/main/Crate.lua"))()
 		]]
 
 		queue_on_teleport(Queue)
@@ -1763,6 +1752,8 @@ RobberyData.CargoShip.Callback = function()
 			task.wait()
 		until not Crate:FindFirstChild("MeshPart") or not RobberyData.CargoShip.Open
 		if not RobberyData.CargoShip.Open then return end
+
+		wait(3)
 	end
 
 	RobberyData.CargoShip.Robbed = true
